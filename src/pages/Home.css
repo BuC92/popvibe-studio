@@ -1,0 +1,103 @@
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-content {
+    text-align: right;
+    z-index: 10;
+}
+
+.hero-title {
+    font-size: 72pt;
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    font-size: 24pt;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+}
+
+.work-section {
+    padding-top: 20rem;
+    /* Drastically increased gap as requested */
+    padding-bottom: 8rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.projects-grid {
+    column-count: 3;
+    column-gap: 2rem;
+    /* slightly tighter gap to fit 3 well */
+    width: 100%;
+}
+
+/* Give explicit varied heights for masonry visual effect if image aspects are the same */
+.projects-grid .project-card:nth-child(3n+1) .project-card-image {
+    aspect-ratio: 4 / 5;
+}
+
+.projects-grid .project-card:nth-child(3n+2) .project-card-image {
+    aspect-ratio: 3 / 4;
+}
+
+.projects-grid .project-card:nth-child(3n) .project-card-image {
+    aspect-ratio: 1 / 1;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+.about-section {
+    padding-top: 6rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* Sinks content to the bottom */
+    align-items: flex-start;
+    /* Ensures content is flushed to the left */
+}
+
+.about-content {
+    /* min-content allows the container to shrink to its widest non-wrapping element (the H2) */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: min-content;
+    margin-bottom: 5vw;
+    /* Absolute spacing away from the bottom of the section */
+}
+
+.about-content h2 {
+    font-size: clamp(4rem, 15vw, 144pt);
+    /* Scales down smoothly for phones */
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    /* Remove margin to keep exact bounds */
+    white-space: nowrap;
+    /* Forces title to define the container's min-content */
+}
+
+.about-text {
+    font-size: 12pt;
+    line-height: 1.6;
+    color: #333;
+    text-align: justify;
+    /* Text will pull flush against both left and right container edges */
+}
